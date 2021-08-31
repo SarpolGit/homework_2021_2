@@ -54,7 +54,7 @@ QUnit.module('Тестируем функцию letters', function () {
 		assert.strictEqual(letters('hello world', false), 'he world');
 	});
 
-	QUnit.test('Мои тесты на подфункции: Удаление всех букв',function (assert) {
+	QUnit.test('Мои тесты на подфункции: Удаление всех повторяющихся букв',function (assert) {
 		assert.strictEqual(deleteAllSameLetters('ЫыЫыЫыЫы'),'');
 		assert.strictEqual(deleteAllSameLetters('Котики и Собачки'),'КтСбач');
 		assert.strictEqual(deleteAllSameLetters('Тесты,опять тесты'),'Т,опяь ');

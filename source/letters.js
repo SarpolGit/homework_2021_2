@@ -1,27 +1,28 @@
-'use strict'
+'use strict';
 
-function letters(string,...logicParam){
-    if(logicParam.length == 0) 
-        return deleteAllSameLetters(string);
-    else if(logicParam[0] == 1){
-        return deleteAllSameLettersSavingFirst(string);
-    }else{
-        return deleteAllSameLettersSavingLast(string);
+/**
+ * Функция для удаления повторяющихся букв
+ * @param {string} string 
+ * @param {boolean} logicParam 
+ * @returns {string} Строка без повторяющихся букв
+ */
+let letters = (string,logicParam) => {
+    switch(logicParam){
+        case undefined:
+            return deleteAllSameLetters(string);
+        case true:
+            return deleteAllSameLettersSavingFirst(string);
+        case false:
+            return deleteAllSameLettersSavingLast(string);
     }
-}
+};
 
 function deleteAllSameLetters(string){
-    let badLetters = new Set;
-    let goodLetters = new Set;
+    const badLetters = new Set();
+    const goodLetters = new Set();
     let resultString = "";
 
-    for(let i = 0; i < string.length; i++){
-        if(goodLetters.has(string[i])){
-            badLetters.add(string[i]);
-        }else{
-            goodLetters.add(string[i]);
-        }
-    }
+    [...string].forEach(letter => goodLetters.has(letter) ? badLetters.add(letter) : goodLetters.add(letter));
     
     goodLetters.forEach(letter => resultString += letter);
     for(let i = 0; i < resultString.length; i++){
@@ -36,22 +37,18 @@ function deleteAllSameLetters(string){
 
 function deleteAllSameLettersSavingFirst(string){
     let resultString = "";
-    let goodLetters = new Set;
+    const goodLetters = new Set();
 
-    for( let i = 0; i < string.length; i++){
-        goodLetters.add(string[i]);
-    }
+    [...string].forEach(letter => goodLetters.add(letter));
 
     goodLetters.forEach(letter => resultString += letter);
     return resultString;
 }
 
 function deleteAllSameLettersSavingLast(string){
-    let goodLetters = new Set;
+    const goodLetters = new Set();
 
-    for( let i = string.length - 1; i >=0; i--){
-        goodLetters.add(string[i]);
-    }
+    [...string].reverse().forEach(letter => goodLetters.add(letter));
 
     return [...goodLetters].reverse().join("");
 }
