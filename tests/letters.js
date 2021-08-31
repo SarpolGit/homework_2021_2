@@ -84,5 +84,7 @@ QUnit.module('Тестируем функцию letters', function () {
 		assert.strictEqual(letters('Бывают огорчения',false),'Бывают горчения');
 		assert.strictEqual(letters('Выпей кофе',false),'Выпй кофе');
 		assert.strictEqual(letters('Поешь булок',false),'Пешь булок');
+
+		assert.strictEqual(letters(''),'');
 	});
 });
