@@ -11,7 +11,9 @@
  */
 const letters = (string, typeOfDeleting) => {
 
-    if (typeof string === 'object') throw new Error('Неверный тип');
+    if (typeof string === 'object') {
+        throw new Error('Неверный тип');
+    }
 
     switch (typeOfDeleting) {
         case true:
