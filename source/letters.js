@@ -9,8 +9,11 @@
  * удаляем все повторяющиеся буквы. 
  * @returns {string} Строка без повторяющихся букв
  */
-const letters = (string,typeOfDeleting) => {
-    switch(typeOfDeleting){
+const letters = (string, typeOfDeleting) => {
+
+    if (typeof string === 'object') throw new Error('Неверный тип');
+
+    switch (typeOfDeleting) {
         case true:
             return deleteAllSameLettersSavingFirst(string);
         case false:
@@ -25,17 +28,13 @@ const letters = (string,typeOfDeleting) => {
  * @param {string} string - Входная строка
  * @returns Строка без повторяющихся букв.
  */
-function deleteAllSameLetters(string){
+function deleteAllSameLetters(string) {
     const badLetters = new Set();
     const goodLetters = new Set();
-    let resultString = '';
 
     string.split('').forEach((letter) => goodLetters.has(letter) ? badLetters.add(letter) : goodLetters.add(letter));
-    [...goodLetters].forEach(letter => {
-        if(!badLetters.has(letter)) resultString += letter;
-    })
 
-    return resultString;
+    return Array.from(goodLetters).reduce((temporaryString, letter) => badLetters.has(letter) ? temporaryString : temporaryString += letter, '');
 }
 
 /**
@@ -43,12 +42,8 @@ function deleteAllSameLetters(string){
  * @param {string} string 
  * @returns Строка без повторяющихся букв.
  */
-function deleteAllSameLettersSavingFirst(string){
-    const goodLetters = new Set();
-
-    string.split('').forEach((letter) => goodLetters.add(letter));
-
-    return [...goodLetters].join('');
+function deleteAllSameLettersSavingFirst(string) {
+    return string.split('').reduce((goodLetters, letter) => goodLetters.includes(letter) ? goodLetters : goodLetters += letter, '');
 }
 
 /**
@@ -56,13 +51,6 @@ function deleteAllSameLettersSavingFirst(string){
  * @param {string} string 
  * @returns Строка без повторяющихся букв.
  */
-function deleteAllSameLettersSavingLast(string){
-    const goodLetters = new Set();
-
-    string.split('').reverse().forEach((letter) => goodLetters.add(letter));
-
-    let resultString = [...goodLetters].reduceRight((temporaryString,letter) => temporaryString += letter,'');
-
-    //Также есть вариант  return [...goodLetters].reverse().join('');
-    return resultString;
+function deleteAllSameLettersSavingLast(string) {
+    return string.split('').reduceRight((goodLetters, letter) => goodLetters.includes(letter) ? goodLetters : goodLetters += letter, '').split('').reverse().join('');
 }

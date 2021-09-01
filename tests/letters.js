@@ -86,5 +86,6 @@ QUnit.module('Тестируем функцию letters', function () {
 		assert.strictEqual(letters('Поешь булок',false),'Пешь булок');
 
 		assert.strictEqual(letters(''),'');
+		assert.throws(() => { letters()},'Неверный тип');
 	});
 });
