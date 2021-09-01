@@ -34,9 +34,12 @@ function deleteAllSameLetters(string) {
     const badLetters = new Set();
     const goodLetters = new Set();
 
-    string.split('').forEach((letter) => goodLetters.has(letter) ? badLetters.add(letter) : goodLetters.add(letter));
+    string.split('').forEach((letter) => 
+    goodLetters.has(letter) ? badLetters.add(letter) : goodLetters.add(letter));
 
-    return Array.from(goodLetters).reduce((temporaryString, letter) => badLetters.has(letter) ? temporaryString : temporaryString += letter, '');
+    return Array.from(goodLetters).reduce((temporaryString, letter) => 
+        badLetters.has(letter) ? 
+        temporaryString : temporaryString += letter, '');
 }
 
 /**
@@ -45,7 +48,9 @@ function deleteAllSameLetters(string) {
  * @returns Строка без повторяющихся букв.
  */
 function deleteAllSameLettersSavingFirst(string) {
-    return string.split('').reduce((goodLetters, letter) => goodLetters.includes(letter) ? goodLetters : goodLetters += letter, '');
+    return string.split('').reduce((goodLetters, letter) => 
+        goodLetters.includes(letter) ? 
+        goodLetters : goodLetters += letter,'');
 }
 
 /**
@@ -54,5 +59,7 @@ function deleteAllSameLettersSavingFirst(string) {
  * @returns Строка без повторяющихся букв.
  */
 function deleteAllSameLettersSavingLast(string) {
-    return string.split('').reduceRight((goodLetters, letter) => goodLetters.includes(letter) ? goodLetters : goodLetters += letter, '').split('').reverse().join('');
+    return string.split('').reduceRight((goodLetters, letter) => 
+        goodLetters.includes(letter) ? 
+        goodLetters : goodLetters += letter, '').split('').reverse().join('');
 }
