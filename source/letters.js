@@ -50,7 +50,7 @@ function deleteAllSameLetters(string) {
 function deleteAllSameLettersSavingFirst(string) {
     return string.split('').reduce((goodLetters, letter) => 
         goodLetters.includes(letter) ? 
-        goodLetters : goodLetters += letter,'');
+        goodLetters : goodLetters += letter, '');
 }
 
 /**
