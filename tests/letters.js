@@ -72,7 +72,7 @@ QUnit.module('Тестируем функцию letters', function () {
 		assert.strictEqual(deleteAllSameLettersSavingLast('Тесты,опять тесты'), 'Т,опяь есты');
 	});
 
-	QUnit.test('Мои тесты:', function (assert) {
+	QUnit.test('Мои тесты на основную функцию letters:', function (assert) {
 		assert.strictEqual(letters('Бывают огорчения'), 'Бывают грчения');
 		assert.strictEqual(letters('Выпей кофе'), 'Выпй коф');
 		assert.strictEqual(letters('Поешь булок'), 'Пешь булк');
