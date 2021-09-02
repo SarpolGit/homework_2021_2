@@ -30,7 +30,7 @@ const letters = (string, typeOfDeleting) => {
  * @param {string} string - Входная строка
  * @returns Строка без повторяющихся букв.
  */
-function deleteAllSameLetters(string) {
+ const deleteAllSameLetters = (string) => {
     const badLetters = new Set();
     const goodLetters = new Set();
 
@@ -47,7 +47,7 @@ function deleteAllSameLetters(string) {
  * @param {string} string 
  * @returns Строка без повторяющихся букв.
  */
-function deleteAllSameLettersSavingFirst(string) {
+const deleteAllSameLettersSavingFirst = (string) => {
     return string.split('').reduce((goodLetters, letter) => 
         goodLetters.includes(letter) ? 
         goodLetters : goodLetters += letter, '');
@@ -58,7 +58,7 @@ function deleteAllSameLettersSavingFirst(string) {
  * @param {string} string 
  * @returns Строка без повторяющихся букв.
  */
-function deleteAllSameLettersSavingLast(string) {
+const deleteAllSameLettersSavingLast = (string) => {
     return string.split('').reduceRight((goodLetters, letter) => 
         goodLetters.includes(letter) ? 
         goodLetters : goodLetters += letter, '').split('').reverse().join('');
