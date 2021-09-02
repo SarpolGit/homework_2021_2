@@ -28,7 +28,7 @@ const letters = (string, typeOfDeleting) => {
 /**
  * Функция для удаления из строки всех повторяющихся букв
  * @param {string} string - Входная строка
- * @returns Строка без повторяющихся букв.
+ * @returns {string} Строка без повторяющихся букв.
  */
  const deleteAllSameLetters = (string) => {
     const badLetters = new Set();
@@ -45,7 +45,7 @@ const letters = (string, typeOfDeleting) => {
 /**
  * Функция для удаления из строки всех повторяющихся букв,кроме первой встретившейся.
  * @param {string} string 
- * @returns Строка без повторяющихся букв.
+ * @returns {string} Строка без повторяющихся букв.
  */
 const deleteAllSameLettersSavingFirst = (string) => {
     return string.split('').reduce((goodLetters, letter) => 
@@ -56,7 +56,7 @@ const deleteAllSameLettersSavingFirst = (string) => {
 /**
  * Функция для удаления из строки всех повторяющихся букв,кроме последней встретившейся.
  * @param {string} string 
- * @returns Строка без повторяющихся букв.
+ * @returns {string} Строка без повторяющихся букв.
  */
 const deleteAllSameLettersSavingLast = (string) => {
     return string.split('').reduceRight((goodLetters, letter) => 
